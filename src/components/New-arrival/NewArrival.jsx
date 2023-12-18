@@ -75,21 +75,21 @@ const NewArrival = () => {
         <img src="./donation/Almirah.webp" alt="Almirah"/>
         <div className="Arr-img">
         <h1>ALMIRAH</h1>
-        <button className="btn">Add to Cart</button>
+        <button className="btn">Add Item</button>
         </div>
       </div>
       <div className="arrival-image">
         <img src="./donation/2.jpg"  alt="/"/>
         <div className="Arr-img">
         <h1>ALMIRAH</h1>
-        <button className="btn">Add to Cart</button>
+        <button className="btn">Add Item</button>
         </div>
       </div>
       <div className="arrival-image">
         <img src="./donation/3.jpg" alt="/" />
         <div className="Arr-img">
         <h1>ALMIRAH</h1>
-        <button className="btn">Add to Cart</button>
+        <button className="btn">Add Item</button>
         </div>
       </div>
     </Carousel>

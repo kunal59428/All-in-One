@@ -12,7 +12,7 @@ label{
   display: inline-block;
 }
 
-.don-login input{
+.don-login input {
   border: none;
   border-bottom: 2px solid #000;
   margin-bottom: 10px;
@@ -20,23 +20,36 @@ label{
   outline: none;
   display: flex;
 }
-.don-login button {
-  background-color: #4caf50;
+
+.don-login textarea {
   border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  overflow: hidden;
-  padding: 5px 44px;
-  position: relative;
-  transition: all .3s linear;
-  z-index: 11;
+  border-bottom: 2px solid #000;
+  margin: 0px auto;
+  outline: none;
   display: flex;
-  margin: 0 auto;
 }
+.don-login button {
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 3px;
+    padding: 10px 30px;
+    border: none;
+    color: #fff;
+    background-color: lightseagreen !important;
+    transition: all ease 0.5s;
+    cursor: pointer;
+    letter-spacing: 1px;
+    overflow: hidden;
+    position: relative;
+    z-index: 11;
+    display: flex;
+    margin: 10px auto;
+}
+
+.don-login button:hover {
+  box-shadow: 5px 5px 0px #000;
+}
+
 .error {
   color: red;
   /* padding: 0px; */

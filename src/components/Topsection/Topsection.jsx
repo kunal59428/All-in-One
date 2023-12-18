@@ -23,7 +23,7 @@ const Topsection = () => {
           causes while fostering community involvement and transparency
         </p>
         <button className="shop-btn" onClick={() => navigate("/products")}>
-          Shop More
+          Check More
         </button>
       </div>
       <div className="img-1">

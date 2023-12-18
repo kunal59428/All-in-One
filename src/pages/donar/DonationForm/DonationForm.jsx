@@ -47,20 +47,12 @@ const DonationForm = () => {
             <br />
 
 
-            <label>Email</label>
+            <label>Item Image</label>
             <input
-              type="email"
-              name="email"
-              value={value.email}
-              onChange={handleChange}
-            />
-            <br />
-
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              value={value.password}
+              type="File"
+              name="file"
+              accept="image/png, image/jpeg"
+              value={value.file}
               onChange={handleChange}
             />
             <br />
@@ -73,6 +65,12 @@ const DonationForm = () => {
               onChange={handleChange}
             />
             <br />
+
+            <label>Discription</label>
+            <textarea name="txt" cols="23" rows="4"></textarea>
+            <br />
+
+            
 
             <button onClick={submitForm}>Donate</button>
           </form>

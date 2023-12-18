@@ -90,13 +90,14 @@
 }
 
 .shop-btn {
-    padding: 5px 10px;
+    padding: 8px 10px;
     border-radius: 5px;
-    font-weight: 600;
+    font-weight: 700;
     background-color: black;
     color: white;
     position: relative;
     z-index: 1;
+    margin-top: 10px;
     overflow: hidden;
     transition: all 0.4s linear;
 }
@@ -121,7 +122,17 @@
 .shop-btn:hover {
     color: black;
 }
+.carousel .slide img {
+    width: 90% !important;
+    height: 70vh;
+}
 
+.carousel .slide .legend  {
+    bottom: 30px !important;
+    margin-left: -35% !important;
+    width: 70% !important;
+    border-radius: 5px !important;
+}
 
 @media screen and (max-width:1000px) {
     .welcome {
