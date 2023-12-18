@@ -134,6 +134,10 @@
     border-radius: 5px !important;
 }
 
+.carousel .carousel-status {
+    right: 30px !important;
+}
+
 @media screen and (max-width:1000px) {
     .welcome {
         width: 90vw;
@@ -159,10 +163,15 @@
 @media screen and (max-width:500px) {
     .home {
         width: 95vw;
+        
     }
     .home-data {
         margin: 30px;
         font-size: 15px;
     }
+    .img-1 {
+        padding: 10px 10px;
+    }
+    
 }
 

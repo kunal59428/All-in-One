@@ -17,9 +17,9 @@ const NewArrival = () => {
 
     <Carousel
       additionalTransfrom={0}
-      // arrows
-      // autoPlay
-      // autoPlaySpeed={100}
+      arrows
+      autoPlay
+      autoPlaySpeed={5}
       centerMode={false}
       className=""
       containerClass="container-with-dots"
