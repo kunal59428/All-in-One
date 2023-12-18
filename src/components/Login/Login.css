@@ -1,0 +1,53 @@
+.login {
+    align-items: center;
+    background-color: white;
+    filter: brightness(.9);
+    padding: 10px 32px;
+    display: flex;
+    flex-direction: column;
+    min-height: 50vh;
+    max-width: 30%;
+    justify-content: center;
+    margin: 100px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    outline: 5px solid;
+}
+
+.login button {
+    background-color: #4caf50;
+    /* border: none; */
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    overflow: hidden;
+    padding: 6px 40px;
+    position: relative;
+    transition: all .3s linear;
+    z-index: 11;
+    border-radius: 5px;
+    margin: 0px 5px;
+}
+  .login-container {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.login-container>h1 {
+    position: relative;
+    font-size: 35px;
+    color: transparent;
+}
+
+.login-container>h1::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    color: orangered;
+    border-right: 4px solid orange;
+    animation: homeStore 2.5s linear infinite;
+}

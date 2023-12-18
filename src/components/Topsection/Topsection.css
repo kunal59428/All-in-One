@@ -1,0 +1,157 @@
+.home {
+    display: grid;
+    grid-template-columns: 36% 60%;
+    align-items: center;
+    width: 85vw;
+    margin: 20px auto;
+    gap: 5%;
+
+}
+
+
+
+.homeTo {
+    animation: homeTo 2s linear infinite;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+@keyframes homeTo {
+    0% {
+        color: green;
+    }
+
+    20% {
+        color: purple;
+    }
+
+    40% {
+        color: orange;
+    }
+
+    60% {
+        color: blue;
+    }
+
+    80% {
+        color: red;
+    }
+
+    90% {
+        color: yellow;
+    }
+}
+
+.home-data>p {
+    text-align: justify;
+}
+
+.home-store {
+    display: flex;
+}
+
+.home-store>h1 {
+    position: relative;
+    font-size: 35px;
+    color: transparent;
+}
+
+.home-store>h1::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    color: orangered;
+    border-right: 4px solid orange;
+    animation: homeStore 2.5s linear infinite;
+}
+
+.img-1 {
+    padding: 10px 50px;
+    margin: 30px 0px 0px 50px;
+    justify-content: center;
+    display: flex;
+}
+
+.img-1 img {
+    width: 45%;
+}
+
+
+@keyframes homeStore {
+    0% {
+        width: 0;
+    }
+
+    60% {
+        width: 100%;
+    }
+}
+
+.shop-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    background-color: black;
+    color: white;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: all 0.4s linear;
+}
+
+.shop-btn::before {
+    content: '';
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform: translateX(100%);
+    transition: all 0.4s linear;
+}
+
+.shop-btn:hover::before {
+    transform: translateX(0);
+}
+
+.shop-btn:hover {
+    color: black;
+}
+
+
+@media screen and (max-width:1000px) {
+    .welcome {
+        width: 90vw;
+        height: 350px;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .home {
+        display: flex;
+        height: fit-content;
+        flex-direction: column;
+        gap: 20px;
+        width: 80vw;
+    }
+
+
+    .home-store>h1 {
+        margin-left: 20px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .home {
+        width: 95vw;
+    }
+    .home-data {
+        margin: 30px;
+        font-size: 15px;
+    }
+}
+

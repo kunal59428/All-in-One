@@ -1,0 +1,26 @@
+.don {
+    align-items: center;
+    background-color: #3e3838;
+    -webkit-filter: brightness(.9);
+    filter: brightness(.9);
+    justify-content: center;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+  }
+
+.don button {
+    background-color: #4caf50;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    overflow: hidden;
+    padding: 7px 41px;
+    position: relative;
+    transition: all .3s linear;
+    z-index: 11;
+  }

@@ -1,0 +1,41 @@
+.Dform {
+    align-items: center;
+    background-color: #3e3838;
+    -webkit-filter: brightness(.9);
+    filter: brightness(.9);
+    justify-content: center;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.Dheader {
+    background-color: white;
+    padding: 10px 70px;
+    border: coral;
+    border-radius: 8px;
+}
+
+input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+select {
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding: 10px 50px;
+  border-bottom: 2px solid #000;
+  outline: none;
+  }

@@ -1,0 +1,78 @@
+body{
+  background-color: #b2aba9;
+}
+.log-container {
+  background-color: #fff;
+  padding: 40px 60px;
+  position: relative;
+  color: #000;
+}
+
+label{
+  display: inline-block;
+}
+
+.don-login input{
+  border: none;
+  border-bottom: 2px solid #000;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  outline: none;
+  display: flex;
+}
+.don-login button {
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  overflow: hidden;
+  padding: 5px 44px;
+  position: relative;
+  transition: all .3s linear;
+  z-index: 11;
+  display: flex;
+  margin: 0 auto;
+}
+.error {
+  color: red;
+  /* padding: 0px; */
+  position: relative;
+  top: -25px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: emoji;
+}
+/* .define {
+  background-color: aqua;
+  margin-left: 25%;
+  width: 50%;
+  padding: 20px 5px;
+  margin-top: 5%;
+  font-size: 18px;
+  text-align: center;
+} */
+.main-head {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.main-head>h1 {
+  position: relative;
+  font-size: 20px;
+  color: transparent;
+}
+
+.main-head>h1::before {
+  content: attr(data-text);
+  position: absolute;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: orangered;
+  border-right: 4px solid orange;
+  animation: homeStore 2.5s linear infinite;
+}
