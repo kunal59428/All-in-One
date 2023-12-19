@@ -8,7 +8,7 @@ const Validation = (value) => {
     if(!value.phone){
         errors.phone="Phone Number is required."
     }else if(value.phone.length < 10){
-        errors.phone = "phone number must be more than five characters"
+        errors.phone = "phone number must be of ten digits."
     }
 
     if(!value.email){
@@ -20,6 +20,9 @@ const Validation = (value) => {
         errors.password="password is required."
     }else if(value.password.length < 5){
         errors.password = "Password must be more than five characters"
+    }
+    else{
+        errors.bool = true;
     }
     return errors;
 }

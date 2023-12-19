@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../DonarLg.css";
 import "./Dform.css";
+import axios from "axios";
 
 const DonationForm = () => {
   // const [name, setName] = useState()
@@ -10,9 +11,10 @@ const DonationForm = () => {
 
   const [value, setValue] = useState({
     name: "",
-    email: "",
+    cat: "",
+    file: "",
     phone: "",
-    password: "",
+    text: "",
   });
 
   const handleChange = (e) => {
@@ -20,8 +22,17 @@ const DonationForm = () => {
     // console.log(e.target.name)
   };
 
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
+    console.log(value);
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    await axios.post("http://localhost:8080/item/donation", value, config)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -29,13 +40,13 @@ const DonationForm = () => {
       <div className="Dheader">
         <div className="don-login">
           <form>
-            <label >Category</label>
-            <select name="item">
-            <option value="Select">Select</option>
+            <label>Category</label>
+            <select name="cat" value={value.cat} onChange={handleChange}>
+              <option value="Select">Select</option>
               <option value="Furniture">Furniture</option>
               <option value="Toy">Toy</option>
               <option value="Clothes">Clothes</option>
-              <option value=""></option>
+              <option value="Others">Others</option>
             </select>
             <label>Item Name</label>
             <input
@@ -45,7 +56,6 @@ const DonationForm = () => {
               onChange={handleChange}
             />
             <br />
-
 
             <label>Item Image</label>
             <input
@@ -67,10 +77,14 @@ const DonationForm = () => {
             <br />
 
             <label>Discription</label>
-            <textarea name="txt" cols="23" rows="4"></textarea>
+            <textarea
+              name="text"
+              value={value.text}
+              cols="23"
+              rows="4"
+              onChange={handleChange}
+            ></textarea>
             <br />
-
-            
 
             <button onClick={submitForm}>Donate</button>
           </form>

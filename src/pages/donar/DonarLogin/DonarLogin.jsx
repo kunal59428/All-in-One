@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../DonarLg.css";
-import Validation from "./validation";
+import Validation from "../validation";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const DonarLogin = () => {
   const [value, setValue] = useState({
@@ -8,16 +10,34 @@ const DonarLogin = () => {
     password: "",
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     setValue({ ...value, [e.target.name]: e.target.value });
     // console.log(e.target.name)
   };
   const [errors, setErrors] = useState([]);
 
-  const submitHandle = (e) => {
+  const submitHandle = async (e) => {
     e.preventDefault();
-    console.log(e)
+    console.log(e);
     setErrors(Validation(value));
+    console.log(errors)
+    if (errors.bool) {
+      const config = {
+        header: {
+          "Content-Type": "application/json",
+        },
+      };
+      await axios
+        .post("http://localhost:8080/api/login", value, config)
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err));
+        navigate("/user")
+    }
+    else{
+      console.log("Validation")
+    }
   };
 
   return (
@@ -26,7 +46,7 @@ const DonarLogin = () => {
         <div className="don-login">
           <form onSubmit={submitHandle}>
             <div className="main-head">
-              <h1 data-text="Login as a Donar">Login as a Donar.  </h1>
+              <h1 data-text="Login as a Donar">Login as a Donar. </h1>
             </div>
 
             <label>Email</label>

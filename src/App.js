@@ -30,6 +30,7 @@ function App() {
         <Route path='/dlogin' element={<DonarLogin/>}/>
         <Route path='/dregister' element={<DonarRegister/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path ="/product" element={<Product />} />
       </Routes>
       <Footer />
     </Router>
