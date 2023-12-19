@@ -15,8 +15,8 @@ function Product() {
             {
                 isLoading?<h2>Loading.....</h2>:
                 product && product.map(item =>{
-                   return(<div className="container" key={item._id}>
-                            <div className="header">
+                   return(<div className="pcontainer" key={item._id}>
+                            <div className="pheader">
                         <img src="./donation/1.jpg" alt="chair" />
                         <div className="product-name">
 

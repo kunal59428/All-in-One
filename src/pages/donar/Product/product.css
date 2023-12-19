@@ -5,10 +5,10 @@
     padding: 20px 0;
     width: 100%;
 }
-.container {
+.pcontainer {
     width: 25%;
 }
-.header {
+.pheader {
     border-radius: 5px;
         display: flex;
         flex-direction: column;
