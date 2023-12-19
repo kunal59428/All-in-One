@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "../Lg.css";
-import Validation from "../dvalidation";
+import "../../donar/Lg.css"
+import Validation from "../cvalidation";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const DonarLogin = () => {
+const ConsumerLogin = () => {
   const [value, setValue] = useState({
     email: "",
     password: "",
@@ -23,21 +23,21 @@ const DonarLogin = () => {
     console.log(e);
     setErrors(Validation(value));
     console.log(errors)
-    if (errors.bool) {
-      const config = {
-        header: {
-          "Content-Type": "application/json",
-        },
-      };
-      await axios
-        .post("http://localhost:8080/api/login", value, config)
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err));
-        navigate("/dForm")
-    }
-    else{
-      console.log("Validation")
-    }
+    // if (errors.bool) {
+    //   const config = {
+    //     header: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   };
+    //   await axios
+    //     .post("http://localhost:8080/api/consumer-login", value, config)
+    //     .then((res) => console.log(res.data))
+    //     .catch((err) => console.log(err));
+    //     navigate("/user")
+    // }
+    // else{
+    //   console.log("Validation")
+    // }
   };
 
   return (
@@ -46,7 +46,7 @@ const DonarLogin = () => {
         <div className="don-login">
           <form onSubmit={submitHandle}>
             <div className="main-head">
-              <h1 data-text="Donar Login...">Donar Login...</h1>
+            <h1 data-text="Consumer Login...">Consumer Login...</h1>
             </div>
 
             <label>Email</label>
@@ -78,4 +78,4 @@ const DonarLogin = () => {
   );
 };
 
-export default DonarLogin;
+export default ConsumerLogin;

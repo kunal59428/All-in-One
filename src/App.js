@@ -7,16 +7,14 @@ import {
 
 import Home from './pages/home/Home';
 import Donar from './pages/donar/Donar/Donar';
-import Consumer from './pages/user/Consumer';
 import MyState from './components/context/data/myState';
-import Product from './pages/product/Product';
 import Navbar from "./components/navbar/Navbar"
 import Footer from './components/footer/Footer';
 import "./App.css"
-import DonationForm from './pages/donar/DonationForm/DonationForm';
 import Login from './components/Login/Login';
-import DonarLogin from './pages/donar/DonarLogin/DonarLogin';
-import DonarRegister from './pages/donar/DonarReg/DonarRegister';
+import ConsumerSwt from './pages/Consumer/Consumer/consumer';
+import Product from './pages/donar/Product/Product';
+import DonationForm from './pages/donar/DonationForm/DonationForm';
 
 function App() {
   return (
@@ -26,11 +24,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path='/donar' element={<Donar/>}/>
-        <Route path='/user' element={<DonationForm/>}/>
-        <Route path='/dlogin' element={<DonarLogin/>}/>
-        <Route path='/dregister' element={<DonarRegister/>}/>
+        {/* <Route path='/clogin' element={<ConsumerLogin/>}/>
+        <Route path='/cregister' element={<ConsumerRegister/>}/> */}
+        <Route path='/Consumer' element={<ConsumerSwt/>}/>
+        {/* <Route path='/dlogin' element={<DonarLogin/>}/>*/}
+        <Route path='/dForm' element={<DonationForm/>}/> 
         <Route path='/login' element={<Login/>}/>
-        <Route path ="/product" element={<Product />} />
+        <Route path ="/product" element={<Product/>} />
       </Routes>
       <Footer />
     </Router>

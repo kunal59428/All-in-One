@@ -81,6 +81,7 @@ label{
 
 .main-head>h1::before {
   content: attr(data-text);
+  border-right: 2px solid red;
   position: absolute;
   width: 0;
   overflow: hidden;

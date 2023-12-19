@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "../Lg.css";
+import "../../donar/Lg.css"
 import axios from "axios";
-import Validation from "../dvalidation";
+import Validation from "../cvalidation";
 
-const DonarRegister = () => {
+const ConsumerRegister = () => {
   // const [name, setName] = useState()
   // const [email, setEmail] = useState()
   // const [password, setPassword] = useState()
@@ -25,25 +25,25 @@ const DonarRegister = () => {
   const submitForm = async (e) => {
     e.preventDefault();
     setErrors(Validation(value));
-    if (
-      value.name === "" ||
-      value.email === "" ||
-      value.password === "" ||
-      value.phone === ""
-    ) {
-      alert("All fields are required....");
-    } else {
-      console.log(value);
-      const config = {
-        header: {
-          "Content-Type": "application/json",
-        },
-      };
-      await axios
-        .post("http://localhost:8080/api/consumer", value, config)
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err));
-    }
+    // if (
+    //   value.name === "" ||
+    //   value.email === "" ||
+    //   value.password === "" ||
+    //   value.phone === ""
+    // ) {
+    //   alert("All fields are required....");
+    // } else {
+    //   console.log(value);
+    //   const config = {
+    //     header: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   };
+    //   await axios
+    //     .post("http://localhost:8080/api/consumer-register", value, config)
+    //     .then((res) => console.log(res.data))
+    //     .catch((err) => console.log(err));
+    // }
   };
 
   return (
@@ -52,7 +52,7 @@ const DonarRegister = () => {
         <div className="don-login">
           <form>
             <div className="main-head">
-              <h1 data-text="Register as a Donar">Register as a Donar. </h1>
+              <h1 data-text="Consumer Register...">Consumer Register...</h1>
             </div>
 
             <label>Name</label>
@@ -105,4 +105,4 @@ const DonarRegister = () => {
   );
 };
 
-export default DonarRegister;
+export default ConsumerRegister;
