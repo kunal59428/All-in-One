@@ -11,7 +11,7 @@ function Donar() {
     <div className="don">
     
       <div > 
-        <button  onClick={e => setSwitchBtn(true)}>Login</button>
+        <button onClick={e => setSwitchBtn(true)}>Login</button>
         <button onClick={e => setSwitchBtn(false)}>Register</button>
       </div>
       {switchBtn ? <DonarLogin /> : <DonarRegister />}
