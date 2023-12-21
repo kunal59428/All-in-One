@@ -55,26 +55,37 @@
 
 @media screen and (max-width:1050px) {
     .login{
-        max-width: 40%;
+        max-width: 38%;
     }
 }
 
 @media screen and (max-width:900px) {
     .login{
-        max-width: 55%;
+        max-width: 42%;
+    }
+    .login button {
+        padding: 6px 25px;
+        font-size: 15px;
     }
     
 }
 @media screen and (max-width:800px) {
     .login{
-        max-width: 50%;
-        padding: 10px;
+        max-width: 45%;
+    }
+    .login button {
+        padding: 6px 30px;
+        font-size: 15px;
     }
 }
 
 @media screen and (max-width:650px) {
     .login{
-        max-width: 65%;
+        max-width: 55%;
+    }
+    .login button {
+        padding: 6px 25px;
+        font-size: 15px;
     }
 }
 
@@ -83,8 +94,8 @@
         max-width: 75%;
         padding: 10px 15px;
     }
-    .login button{
-        padding: 6px 35px;
+    .login button {
+        padding: 6px 15px;
         font-size: 12px;
     }
 }

@@ -28,37 +28,21 @@
 
 
   @media screen and (max-width:1050px) {
-    .login{
-        max-width: 40%;
-    }
+    
 }
 
 @media screen and (max-width:900px) {
-    .login{
-        max-width: 55%;
-    }
+    
     
 }
 @media screen and (max-width:800px) {
-    .login{
-        max-width: 50%;
-        padding: 10px;
-    }
+    
 }
 
 @media screen and (max-width:650px) {
-    .login{
-        max-width: 65%;
-    }
+    
 }
 
 @media screen and (max-width:500px) {
-    .login {
-        max-width: 75%;
-        padding: 10px 15px;
-    }
-    .login button{
-        padding: 6px 35px;
-        font-size: 12px;
-    }
+    
 }
