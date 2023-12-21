@@ -12,9 +12,9 @@ function Login() {
       <div className="login-container">
         <h1 data-text="Login as a">Login as a</h1>
       </div>
-      <div className="">
-        <button onClick={(e) => navigate("/Consumer")}>Consumer</button>
-        <button onClick={(e) => navigate("/Donar")}>Donar</button>
+      <div>
+        <button className="con-d" onClick={(e) => navigate("/Consumer")}>Consumer</button>
+        <button className="con-d" onClick={(e) => navigate("/Donar")}>Donar</button>
       </div>
     </div>
   );
