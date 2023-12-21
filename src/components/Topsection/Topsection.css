@@ -5,6 +5,7 @@
     width: 85vw;
     margin: 20px auto;
     gap: 5%;
+    background-image: url('http://localhost:5000/bg.jpg');
 
 }
 
@@ -123,8 +124,8 @@
     color: black;
 }
 .carousel .slide img {
-    width: 90% !important;
-    height: 70vh;
+    width: 85% !important;
+    height: 45vh;
 }
 
 .carousel .slide .legend  {
@@ -135,7 +136,15 @@
 }
 
 .carousel .carousel-status {
-    right: 30px !important;
+    right: 45px !important;
+}
+
+.carousel .control-prev.control-arrow {
+    left: 15px;
+}
+
+.carousel .control-next.control-arrow {
+    right: 15px;
 }
 
 @media screen and (max-width:1000px) {
@@ -163,6 +172,7 @@
 @media screen and (max-width:500px) {
     .home {
         width: 95vw;
+        margin: 0;
         
     }
     .home-data {
@@ -171,6 +181,16 @@
     }
     .img-1 {
         padding: 10px 10px;
+    }
+    .carousel .slide img {
+        width: 80% !important;
+        height: 40vh;
+    }
+    .carousel .control-next.control-arrow {
+        right: 5px;
+    }
+    .carousel .control-prev.control-arrow {
+        left: 4px;
     }
     
 }

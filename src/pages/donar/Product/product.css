@@ -19,6 +19,12 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
 }
+.pheader>img {
+    width: 100%;
+}
+.product-name>h2{
+    font-size: 20px;
+}
 
 .product-name {
     display: flex;
@@ -53,10 +59,23 @@
 
  /* ***************************** RESPONSIVE ************************* */
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1150px) {
     .container {
         width: 30%;
         margin: 10px auto;
+    }
+    .pcontainer {
+        width: 30%;
+        margin: auto;
+    }
+    .pheader>img {
+        width: 100%;
+    }
+    .pheader{
+        margin: 10px 5px;
+    }
+    .product-name>h2{
+        font-size: 20px;
     }
     
 }
@@ -65,6 +84,19 @@
     .container {
         width: 33.3%;
         margin: 10px auto;
+    }
+    .pcontainer {
+        width: 30%;
+        margin: auto;
+    }
+    .pheader>img {
+        width: 100%;
+    }
+    .pheader{
+        margin: 10px 5px;
+    }
+    .product-name>h2{
+        font-size: 15px;
     }
     
 }
@@ -80,8 +112,21 @@
     font-size: 11px;
     font-weight: 700;
     }
+    .product-name>h2{
+        font-size: 15px;
+    }
     .btn{
         padding: 12px 20px;
+    }
+    .pcontainer {
+        width: 45%;
+        margin: auto;
+    }
+    .pheader>img {
+        width: 100%;
+    }
+    .pheader{
+        margin: 10px 5px;
     }
 }
 
@@ -90,4 +135,11 @@
         width: 68%;
         margin: 10px auto;
     }  
+    .pcontainer {
+        width: 70%;
+        margin: auto;
+    }
+    .pheader{
+        margin: 10px 5px;
+    }
 } 

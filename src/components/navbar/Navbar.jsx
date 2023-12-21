@@ -1,198 +1,134 @@
-import React, { useContext, useState } from "react";
-import { BsFillCloudSunFill } from "react-icons/bs";
-import { FiSun } from "react-icons/fi";
-import myContext from "../context/data/myContext";
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { FaCartShopping } from "react-icons/fa6";
+import { GoSearch } from "react-icons/go";
+import "./Nav.css";
 import Category from "../Category/Category";
 
-function Navbar() {
-  const [open, setOpen] = useState(false);
+const Navbar = () => {
+  //   const { cart } = useSelector((state) => state.cart);
+  //   const { products } = useSelector((state) => state.products);
 
-  const location = useLocation();
-  // console.log(location.pathname)
+  const [search, setSearch] = useState();
 
-  const context = useContext(myContext);
-  const { toggleMode, mode } = context;
+  const [showham] = useState(false);
+
+  const navigate = useNavigate();
+
+  // useEffect(() => {
+  //     if (localStorage.getItem('id')) {
+  //         dispatch(getCartProduct(localStorage.getItem('id')))
+  //     }
+  //     // eslint-disable-next-line
+  // }, [localStorage.getItem('id')])
+
+  // useEffect(() => {
+  //     dispatch(getData())
+  //     // eslint-disable-next-line
+  // }, [])
+
+  useEffect(() => {
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("hamActive");
+      navMenu.classList.toggle("hamActive");
+      console.log("Clicked");
+    });
+
+    document.querySelectorAll(".nav-link").forEach((n) => {
+      n.addEventListener("click", () => {
+        hamburger.classList.remove("hamActive");
+        navMenu.classList.remove("hamActive");
+        console.log("click");
+      });
+    });
+  }, [showham]);
+
+  const handleChange = (data) => {
+    setSearch(data.toLowerCase());
+  };
+
   return (
-    <div>
-      <header className="relative bg-white">
-        <nav
-          aria-label="Top"
-          className="bg-gray-100 px-4 sm:px-6 lg:px-8 shadow-xl "
-          style={{
-            backgroundColor: mode === "dark" ? "#282c34" : "",
-            color: mode === "dark" ? "white" : "",
-          }}
-        >
-          <div className="">
-            <div className="flex h-16 items-center">
-              <button
-                type="button"
-                className="rounded-md bg-white p-2 text-gray-400 lg:hidden"
-                onClick={() => setOpen(true)}
-                style={{
-                  backgroundColor: mode === "dark" ? "rgb(80 82 87)" : "",
-                  color: mode === "dark" ? "white" : "",
-                }}
-              >
-                <span className="sr-only">Open menu</span>
+    <>
+      <div className="nav-main">
+        <div className="brand-search">
+          <div className="logo">
+            <h3 onClick={() => navigate("/")}>
+              <a href="index.html">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                  id="logo-14"
+                  width="70"
+                  height="30"
+                  viewBox="0 0 73 49"
                   fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
+                  {" "}
                   <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  />
+                    d="M46.8676 24C46.8676 36.4264 36.794 46.5 24.3676 46.5C11.9413 46.5 1.86765 36.4264 1.86765 24C1.86765 11.5736 11.9413 1.5 24.3676 1.5C36.794 1.5 46.8676 11.5736 46.8676 24Z"
+                    class="ccustom"
+                    fill="#68DBFF"
+                  ></path>{" "}
+                  <path
+                    d="M71.1324 24C71.1324 36.4264 61.1574 46.5 48.8529 46.5C36.5484 46.5 26.5735 36.4264 26.5735 24C26.5735 11.5736 36.5484 1.5 48.8529 1.5C61.1574 1.5 71.1324 11.5736 71.1324 24Z"
+                    class="ccompli1"
+                    fill="#FF7917"
+                  ></path>{" "}
+                  <path
+                    d="M36.6705 42.8416C42.8109 38.8239 46.8676 31.8858 46.8676 24C46.8676 16.1144 42.8109 9.17614 36.6705 5.15854C30.5904 9.17614 26.5735 16.1144 26.5735 24C26.5735 31.8858 30.5904 38.8239 36.6705 42.8416Z"
+                    class="ccompli2"
+                    fill="#5D2C02"
+                  ></path>{" "}
                 </svg>
-              </button>
-
-              {/* Logo */}
-              <div className="ml-4 flex lg:ml-0">
-                <Link to={"/"} className="flex">
-                  <div className="flex ">
-                    <h1
-                      className=" text-2xl font-bold text-black  px-2 py-1 rounded"
-                      style={{ color: mode === "dark" ? "white" : "" }}
-                    >
-                      ALL IN ONE DONATION
-                    </h1>
-                  </div>
-                </Link>
-              </div>
-
-              <div className="ml-auto flex items-center">
-                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <Link to={'/product'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
-                    Products
-                  </Link>
-                  {/* <Link
-                    to={"/user"}
-                    className={
-                      location.pathname === "/user"
-                        ? "active text-sm font-medium text-gray-700"
-                        : "text-sm font-medium text-gray-700"
-                    }
-                  >
-                    Consumer
-                  </Link>
-                  <Link
-                    to={"/donar"}
-                    className={
-                      location.pathname === "/donar"
-                        ? "active text-sm font-medium text-gray-700"
-                        : "text-sm font-medium text-gray-700"
-                    }
-                  >
-                    Donar
-                  </Link> */}
-                  {/* <Link
-                    to={"/dashboard"}
-                    className="text-sm font-medium text-gray-700 "
-                    style={{ color: mode === "dark" ? "white" : "" }}
-                  >
-                    Admin
-                  </Link> */}
-
-                  <Link
-                    to={"/login"}
-                    className="text-sm font-medium text-gray-700 "
-                    style={{ color: mode === "dark" ? "white" : "" }}
-                  >
-                    Login
-                  </Link>
-
-                  {/* <a
-                    className="text-sm font-medium text-gray-700 cursor-pointer  "
-                    style={{ color: mode === "dark" ? "white" : "" }}
-                  >
-                    Login
-                  </a> */}
-                </div>
-
-                <div className="hidden lg:ml-8 lg:flex">
-                  <a href="#" className="flex items-center text-gray-700 ">
-                    <img
-                      src="https://ecommerce-sk.vercel.app/img/indiaflag.png"
-                      alt=""
-                      className="block h-auto w-5 flex-shrink-0"
-                    />
-                    <span
-                      className="ml-3 block text-sm font-medium"
-                      style={{ color: mode === "dark" ? "white" : "" }}
-                    >
-                      INDIA
-                    </span>
-                  </a>
-                </div>
-                <div className="hidden lg:ml-8 lg:flex">
-                  <a href="#" className="flex items-center text-gray-700 ">
-                    <img
-                      className="inline-block w-10 h-10 rounded-full"
-                      src="https://i.pinimg.com/originals/0d/cf/b5/0dcfb548989afdf22afff75e2a46a508.jpg"
-                      alt="Dan_Abromov"
-                    />
-                  </a>
-                </div>
-
-                {/* Search */}
-                <div className="flex lg:ml-6">
-                  <button className="" onClick={toggleMode}>
-                    {/* <MdDarkMode size={35} style={{ color: mode === 'dark' ? 'white' : '' }} /> */}
-                    {mode === "light" ? (
-                      <FiSun className="" size={30} />
-                    ) : "dark" ? (
-                      <BsFillCloudSunFill size={30} />
-                    ) : (
-                      ""
-                    )}
-                  </button>
-                </div>
-
-                {/* Cart */}
-                <div className="ml-4 flow-root lg:ml-6">
-                  <Link
-                    to={"/cart"}
-                    className="group -m-2 flex items-center p-2"
-                    style={{ color: mode === "dark" ? "white" : "" }}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-6 h-6"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-                      />
-                    </svg>
-
-                    <span
-                      className="ml-2 text-sm font-medium text-gray-700 group-"
-                      style={{ color: mode === "dark" ? "white" : "" }}
-                    >
-                      0
-                    </span>
-                    <span className="sr-only">items in cart, view bag</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
+              </a>
+              <span>Donation</span>
+            </h3>
           </div>
-        </nav>
-      </header>
-      <Category/>
-    </div>
+          <div className="search">
+            <div className="icons">
+              <GoSearch />
+            </div>
+            <input
+              type="text"
+              name="search"
+              value={search}
+              onChange={(e) => handleChange(e.target.value)}
+              placeholder="Search for Products, Brands and More"
+              autoComplete="off"
+            />
+          </div>
+        </div>
+        <div className="nav-item">
+          <ul className="nav-menu">
+            <NavLink to="/" className="hoverBorder nav-link">
+              Home
+            </NavLink>
+            <NavLink to="/product" className="hoverBorder nav-link">
+              Products
+            </NavLink>
+            <NavLink to="/contact" className="hoverBorder nav-link">
+              Contact
+            </NavLink>
+
+            <NavLink to="/login" className="hoverBorder nav-link">
+              Login
+            </NavLink>
+            <NavLink to="/" className="cart-link nav-link">
+              <FaCartShopping className="cart-trolley" />
+            </NavLink>
+          </ul>
+          <div className="hamburger">
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </div>
+        </div>
+      </div>
+      <Category />
+    </>
   );
-}
+};
 
 export default Navbar;

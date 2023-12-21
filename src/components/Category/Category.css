@@ -2,6 +2,7 @@
     background-color: teal;
     display: flex;
     width: 100%;
+    margin-top: 72px;
     justify-content: space-evenly;
 }
 
@@ -18,25 +19,26 @@
 
 @media screen and (max-width:1040px) {
     .category-main{
-        margin-top: 60px;
+        margin-top: 68px;
     }
 }
 
 @media screen and (max-width:900px) {
     .category-main{
-        margin-top: 59px;
+        margin-top: 70px;
+        
     }
 }
 
 @media screen and (max-width:800px) {
     .category-main{
-        margin-top: 57px;
+        margin-top: 75px;
     }
 }
 
 @media screen and (max-width:500px) {
     .category-main{
-        margin-top: 0px;
+        margin-top: 90px;
     }
     .img-1 {
         margin: 0px;
