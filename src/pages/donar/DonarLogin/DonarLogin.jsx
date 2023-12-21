@@ -30,7 +30,7 @@ const DonarLogin = () => {
         },
       };
       await axios
-        .post("http://localhost:8080/api/login", value, config)
+        .post("https://all-in-one-rew7.onrender.com/api/login", value, config)
         .then((res) => console.log(res.data))
         .catch((err) => console.log(err));
         navigate("/dForm")

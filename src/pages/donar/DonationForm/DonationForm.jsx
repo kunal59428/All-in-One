@@ -30,7 +30,7 @@ const DonationForm = () => {
         "Content-Type": "application/json",
       },
     };
-    await axios.post("http://localhost:8080/item/donation", value, config)
+    await axios.post("https://all-in-one-rew7.onrender.com/item/donation", value, config)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   };
