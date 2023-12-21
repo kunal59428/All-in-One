@@ -10,12 +10,12 @@
     min-height: 90vh;
   }
 
-.don button {
+.don button{
     background-color: lightseagreen;
     border: none;
     color: #fff;
     cursor: pointer;
-    font-size: 20.8px;
+    font-size: 20.8px !important;
     font-weight: 600;
     letter-spacing: 1px;
     overflow: hidden;
