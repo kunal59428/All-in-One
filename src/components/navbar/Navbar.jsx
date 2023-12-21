@@ -56,7 +56,7 @@ const Navbar = () => {
         <div className="brand-search">
           <div className="logo">
             <h3 onClick={() => navigate("/")}>
-              <a href="index.html">
+              <a href="/">
                 <svg
                   id="logo-14"
                   width="70"
