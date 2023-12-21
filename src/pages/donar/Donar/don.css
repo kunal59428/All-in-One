@@ -10,7 +10,7 @@
     min-height: 90vh;
   }
 
-.don button{
+.don>button{
     background-color: lightseagreen;
     border: none;
     color: #fff;
