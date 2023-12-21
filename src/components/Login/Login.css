@@ -19,7 +19,7 @@
     /* border: none; */
     color: #fff;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 21px !important; 
     font-weight: 500;
     letter-spacing: 1px;
     overflow: hidden;
