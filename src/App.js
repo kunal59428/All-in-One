@@ -15,6 +15,7 @@ import ConsumerSwt from './pages/Consumer/Consumer/consumer';
 import Product from './pages/donar/Product/Product';
 import DonationForm from './pages/donar/DonationForm/DonationForm';
 import Navbar from './components/navbar/Navbar';
+import Contact from './pages/Contact/contact';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path='/dForm' element={<DonationForm/>}/> 
         <Route path='/login' element={<Login/>}/>
         <Route path ="/product" element={<Product/>} />
+        <Route path='/contact' element={<Contact/>}/>
       </Routes>
       <Footer />
     </Router>

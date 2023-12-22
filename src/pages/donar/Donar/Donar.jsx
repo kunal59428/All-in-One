@@ -10,11 +10,11 @@ function Donar() {
     
     <div className="don">
     
-      <div > 
+      <div className="main-div"> 
         <button onClick={e => setSwitchBtn(true)}>Login</button>
         <button onClick={e => setSwitchBtn(false)}>Register</button>
+        {switchBtn ? <DonarLogin /> : <DonarRegister />}
       </div>
-      {switchBtn ? <DonarLogin /> : <DonarRegister />}
     </div>
   );
 }

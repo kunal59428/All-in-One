@@ -3,10 +3,16 @@
     grid-template-columns: 36% 60%;
     align-items: center;
     width: 85vw;
-    margin: 20px auto;
+    margin:auto;
     gap: 10%;
 
 }
+.Topsection {
+    height:82vh; 
+    background-image: url("../../../public/donation/bg-1.jpg");
+    background-repeat: no-repeat;
+  background-size: 100% 100%;
+  }
 
 
 
