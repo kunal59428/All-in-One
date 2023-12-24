@@ -40,7 +40,7 @@ const DonationForm = () => {
     <div className=" Dform log-container">
       <div className="Dheader">
         <div className="don-login">
-          <form>
+          <form action="https://formspree.io/f/xoqopywo" method='POST'>
             <label>Category</label>
             <select name="cat" value={value.cat} onChange={handleChange}>
               <option value="Select">Select</option>
@@ -87,7 +87,7 @@ const DonationForm = () => {
             ></textarea>
             <br />
 
-            <button onClick={submitForm}>Donate</button>
+            <button onClick={submitForm} >Donate</button>
           </form>
         </div>
       </div>
