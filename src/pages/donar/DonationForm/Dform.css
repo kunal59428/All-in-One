@@ -73,7 +73,7 @@ select {
   
   @media screen and (max-width:500px) {
     .Dheader{
-      width: fit-content ;
+      width: 80%;
     }
   }
   
