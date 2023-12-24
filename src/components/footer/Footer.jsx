@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="footer-top">
         <div className="footer-detail">
           <div className="footer-heading">
-            My/Store <span className="footer-title">Explore here</span>
+           For/More <span className="footer-title">Explore here</span>
           </div>
           <p>
             The "All-in-One Donation App" project seeks to address the
