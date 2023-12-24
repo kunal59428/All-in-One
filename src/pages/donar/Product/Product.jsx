@@ -21,7 +21,10 @@ function Product() {
                         <div className="product-name">
 
                         <h2>{item.name}</h2>
-                        <button className="btn">Add Item</button>        
+                        <button className="btn" onClick={() => {
+                            JSON.parse(localStorage.getItem("Donar_id")) ? alert("Items added to cart") :
+                            alert("Login required for adding product")
+                        }}>Add Item</button>        
                         </div>
                             </div>
                     </div>

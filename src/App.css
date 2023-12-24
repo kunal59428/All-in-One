@@ -5,6 +5,15 @@
   color: red;
 }
 
+body{
+  background-color: #ffff;
+}
+
 /* .carousel .thumbs-wrapper {
   display: none;
 } */
+.app{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

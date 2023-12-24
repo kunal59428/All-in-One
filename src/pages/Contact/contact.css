@@ -43,3 +43,12 @@ textarea {
 .map-section>iframe{
     border-radius: 10px;
 }
+
+@media screen and (max-width:450px) {
+    .contact-main {
+        display: block;
+    }
+    .form-section{
+        margin-bottom: 20px;
+    }
+}

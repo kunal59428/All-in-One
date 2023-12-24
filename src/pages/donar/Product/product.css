@@ -22,8 +22,16 @@
 .pheader>img {
     width: 100%;
 }
-.product-name>h2{
-    font-size: 20px;
+.product-name>h2:first-child:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.product-name>h2:first-child {
+    color: #000;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
 }
 
 .product-name {
@@ -36,13 +44,9 @@
     gap: 5%;
     font-weight: 700;
 }
-.product-name h1 {
-    font-size: 15px;
-    font-weight: 700;
-}
 
-.btn{
-    font-size: 10px;
+.product-name .btn{
+    font-size: 12px;
     font-weight: 700;
     border-radius: 3px;
     padding: 12px 20px;
@@ -51,10 +55,10 @@
     background-color: lightseagreen;
     transition: all ease 0.5s;
  }
- 
-.btn:hover {
-     box-shadow: 5px 5px 0px #000;
- }
+
+ .product-name .btn:hover {
+    box-shadow: 5px 5px 0px #000;
+}
 
 
  /* ***************************** RESPONSIVE ************************* */

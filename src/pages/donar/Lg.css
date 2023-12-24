@@ -1,6 +1,3 @@
-body{
-  background-color: #b2aba9;
-}
 .log-container {
   background-color: #fff;
   padding: 40px 60px;
@@ -70,6 +67,7 @@ label{
 } */
 .main-head {
   display: flex;
+  justify-content: center;
   margin-bottom: 20px;
 }
 

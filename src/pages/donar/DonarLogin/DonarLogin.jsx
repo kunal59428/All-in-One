@@ -21,9 +21,11 @@ const DonarLogin = () => {
   const submitHandle = async (e) => {
     e.preventDefault();
     console.log(e);
-    setErrors(Validation(value));
-    console.log(errors)
-    if (errors.bool) {
+    // console.log(errors)
+    if(value.email === "" || value.password === ""){
+      setErrors(Validation(value));
+    }
+    else{
       const config = {
         header: {
           "Content-Type": "application/json",
@@ -31,12 +33,18 @@ const DonarLogin = () => {
       };
       await axios
         .post("https://all-in-one-rew7.onrender.com/api/login", value, config)
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err));
-        navigate("/dForm")
-    }
-    else{
-      console.log("Validation")
+        .then((res) => {console.log(res.data)
+        if(res.data.msg2){
+          localStorage.setItem("DonarUser",JSON.stringify(res.data.find))
+          localStorage.setItem("Donar_id",JSON.stringify(res.data.find._id))
+          navigate("/dForm")
+          alert(res.data.msg)
+        }
+        else{
+          alert(res.data.msg)
+        }
+      }).catch((err) => console.log(err));
+      
     }
   };
 

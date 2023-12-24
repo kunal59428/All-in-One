@@ -167,17 +167,20 @@ svg#logo-14 {
     font-size: 1.4rem;
     padding: 0;
     position: relative;
+    justify-content: center;
+
 }
 
 .dropdown {
     position: absolute;
     top: 48px;
-    left: -40px;
+    left: -55px;
     background-color: rgb(234, 231, 231);
     border-radius: 5px;
     color: black;
     padding-left: 0;
     z-index: 2;
+    width: 100px;
 }
 
 .admin {
@@ -203,7 +206,7 @@ svg#logo-14 {
     content: '';
     transform: rotate(45deg);
     top: -0.6rem;
-    right: 2.8rem;
+    right: 2rem;
     width: 20px;
     height: 20px;
     background-color: rgb(234, 231, 231);

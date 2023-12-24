@@ -11,21 +11,23 @@ const Navbar = () => {
 
   const [search, setSearch] = useState();
 
+  const [showProfile, setShowProfile] = useState(false);
+
+  const [userName, setuserName] = useState();
+
   const [showham] = useState(false);
 
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //     if (localStorage.getItem('id')) {
-  //         dispatch(getCartProduct(localStorage.getItem('id')))
-  //     }
-  //     // eslint-disable-next-line
-  // }, [localStorage.getItem('id')])
+  useEffect(() => {
+    if (localStorage.getItem('DonarUser')) {
+      setuserName(JSON.parse(localStorage.getItem("DonarUser")).name)
+    }
+  },[JSON.parse(localStorage.getItem("DonarUser"))])
 
-  // useEffect(() => {
-  //     dispatch(getData())
-  //     // eslint-disable-next-line
-  // }, [])
+  const capitalize = (word) => {
+    return word[0].toUpperCase() + word.slice(1) 
+  }
 
   useEffect(() => {
     const hamburger = document.querySelector(".hamburger");
@@ -49,6 +51,13 @@ const Navbar = () => {
   const handleChange = (data) => {
     setSearch(data.toLowerCase());
   };
+
+  const logout = () => {
+    localStorage.removeItem("DonarUser")
+    localStorage.removeItem("Donar_id")
+    navigate("/")
+    window.location.reload()
+  }
 
   return (
     <>
@@ -112,9 +121,19 @@ const Navbar = () => {
               Contact
             </NavLink>
 
-            <NavLink to="/login" className="hoverBorder nav-link">
-              Login
-            </NavLink>
+            {!userName ? <NavLink to="/login" className="hoverBorder nav-link">Login</NavLink> :
+            <div className="userName">
+              <span className="admin" onClick={() => setShowProfile(!showProfile)}>{userName[0].toUpperCase()} </span>
+              {
+                showProfile && <ul className="dropdown">
+                  <li>Hi, {capitalize(userName)}</li>
+                  <li onClick={()=>{logout()}}>Logout</li>
+                </ul>
+              }
+            </div>}
+
+
+
             <NavLink to="/" className="cart-link nav-link">
               <FaCartShopping className="cart-trolley" />
             </NavLink>

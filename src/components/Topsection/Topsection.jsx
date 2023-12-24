@@ -14,7 +14,7 @@ const Topsection = () => {
         <div className="home-store">
           <h1 data-text="Donation Store.">Donation Store.</h1>
         </div>
-        <p>
+        <p className="mid">
           The "All-in-One Donation App" project seeks to address the challenges
           and inefficiencies in the current charitable landscape by creating a
           comprehensive and user-friendly mobile application. This app aims to
@@ -30,15 +30,15 @@ const Topsection = () => {
         `{" "}
         <Carousel>
           <div>
-            <img src="./donation/1.jpg" alt="" />
+            <img src="./donation/3.jpg" alt="" />
             <p className="legend">Legend 1</p>
           </div>
           <div>
-            <img src="./donation/2.jpg" alt="" />
+            <img src="./donation/image-2.jpeg" alt="" />
             <p className="legend">Legend 2</p>
           </div>
           <div>
-            <img src="./donation/3.jpg" alt="" />
+            <img src="./donation/1.jpg" alt="" />
             <p className="legend">Legend 3</p>
           </div>
         </Carousel>

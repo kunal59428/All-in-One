@@ -19,6 +19,7 @@ import Contact from './pages/Contact/contact';
 
 function App() {
   return (
+    <div className='app'>
     <MyState>
     <Router>
       <Navbar/>
@@ -37,6 +38,7 @@ function App() {
       <Footer />
     </Router>
     </MyState>
+    </div>
   )
 }
 

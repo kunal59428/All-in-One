@@ -21,9 +21,6 @@ const Validation = (value) => {
     }else if(value.password.length < 5){
         errors.password = "Password must be more than five characters"
     }
-    else{
-        errors.bool = true;
-    }
     return errors;
 }
 

@@ -9,6 +9,13 @@
 
 }
 
+.mid {
+    color: white;
+    margin: 0;
+    padding: 10px;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+  }
+
 
 
 .homeTo {
@@ -69,7 +76,7 @@
 }
 
 .img-1 {
-    padding: 10px 50px;
+    padding: 30px 50px 0px 50px;
     margin: 30px 0px 0px 50px;
     justify-content: center;
     display: flex;
@@ -137,6 +144,7 @@
 
 .carousel .carousel-status {
     right: 45px !important;
+    top: 40px;
 }
 
 .carousel .control-prev.control-arrow {
