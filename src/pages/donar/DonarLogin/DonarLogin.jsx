@@ -14,6 +14,7 @@ const DonarLogin = () => {
 
   const handleChange = (e) => {
     setValue({ ...value, [e.target.name]: e.target.value });
+    
     // console.log(e.target.name)
   };
   const [errors, setErrors] = useState([]);
