@@ -44,5 +44,19 @@
 }
 
 @media screen and (max-width:500px) {
+  /* .login {
+    max-width: 75%;
+    padding: 10px 15px;
+  }
+  .login button {
+    padding:  6px 35px;
+    font-size: 12px;
+  }
+  .don>div:nth-child(1)>button{
+    width: 50%;
+  }  
+  .don>div{
+    width: 85%;
+  } */
     
 }
