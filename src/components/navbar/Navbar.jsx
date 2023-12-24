@@ -36,14 +36,12 @@ const Navbar = () => {
     hamburger.addEventListener("click", () => {
       hamburger.classList.toggle("hamActive");
       navMenu.classList.toggle("hamActive");
-      console.log("Clicked");
     });
 
     document.querySelectorAll(".nav-link").forEach((n) => {
       n.addEventListener("click", () => {
         hamburger.classList.remove("hamActive");
         navMenu.classList.remove("hamActive");
-        console.log("click");
       });
     });
   }, [showham]);

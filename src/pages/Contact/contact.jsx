@@ -7,13 +7,13 @@ const Contact = () => {
         <>
 
             <div className='contact-main'>
-                <div className="form-section">
+                <div className="form-section product-name">
                     <h3>Contact us</h3>
                     <form action="https://formspree.io/f/xoqopywo" method='POST'>
                         <input type="text" name='username' placeholder='username' autoComplete='off' />
                         <input type="email" name='Email' placeholder='abc@email.com' autoComplete='off' />
                         <textarea name="message" cols="30" rows="10" placeholder='write something here....'></textarea>
-                        <input type="submit" value='Send' />
+                        <input className='btn' type="submit" value='Send' />
                     </form>
                 </div>
                 <div className="map-section">

@@ -2,8 +2,6 @@ import React, {useEffect} from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import CurrencyFormat from '../CurrencyFormat';
 import { getItems } from "../../Feature/ProductSlice";
 import "./Otherproduct.css"
 
