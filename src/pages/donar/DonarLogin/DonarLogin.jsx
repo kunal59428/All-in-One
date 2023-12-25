@@ -21,7 +21,6 @@ const DonarLogin = () => {
 
   const submitHandle = async (e) => {
     e.preventDefault();
-    console.log(e);
     // console.log(errors)
     if(value.email === "" || value.password === ""){
       setErrors(Validation(value));

@@ -7,23 +7,29 @@
     padding: 20px 0;
     display: flex;
     flex-direction: column;
-    min-height: 90vh;
+    height: fit-content;
   }
 
 .con button {
-    background-color: lightseagreen;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    overflow: hidden;
-    padding: 7px 41px;
-    position: relative;
-    transition: all .3s linear;
-    z-index: 11;
+  background-color: lightseagreen;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  overflow: hidden;
+  padding: 7px 41px;
+  position: relative;
+  transition: all .3s linear;
+  z-index: 11;
   }
+
+  .con-select {
+    margin: 10px 5px;
+    padding: 10px 28px;
+  }
+
 
   @media screen and (max-width:500px) {
     .login {

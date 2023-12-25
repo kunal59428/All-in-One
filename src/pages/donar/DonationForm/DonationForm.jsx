@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "../Lg.css";
 import "./Dform.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Validation from "../dvalidation";
 
 const DonationForm = () => {
   // const [name, setName] = useState()
@@ -17,6 +19,10 @@ const DonationForm = () => {
     text: "",
   });
 
+  const [errors, setErrors] = useState([]);
+
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     setValue({ ...value, [e.target.name]: e.target.value });
     // console.log(e.target.name)
@@ -24,30 +30,46 @@ const DonationForm = () => {
 
   const submitForm = async (e) => {
     e.preventDefault();
-    console.log(value);
+    setErrors(Validation(value));
+    if(value.name === "" || value.phone === "" || value.cat === "" || value.text === ""){
+      alert("All fields are required....");
+    }
+    else{
+    
+    
     const config = {
       headers: {
         "Content-Type": "application/json",
       },
     };
     await axios.post("https://all-in-one-rew7.onrender.com/item/donation", value, config)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
+    .then((res) => {console.log(res.data)
+      navigate("/")
+      if(res.data.msg2){
+        alert(res.data.msg)
+      }
+      else{
+        alert(res.data.msg)
+      }
+    }).catch((err) => console.log(err));
+  }
   };
 
   return (
     <div className=" Dform log-container">
       <div className="Dheader">
         <div className="don-login">
-          <form>
+          <form >
             <label>Category</label>
-            <select name="cat" value={value.cat} onChange={handleChange}>
-              <option value="Select">Select</option>
+            <select name="cat" value={value.cat}   onChange={handleChange}>
+              <option value="">Select</option>
               <option value="Furniture">Furniture</option>
               <option value="Toy">Toy</option>
               <option value="Clothes">Clothes</option>
               <option value="Others">Others</option>
             </select>
+            <br/>
+            {errors.cat && <p className="error">{errors.cat}</p>}
             <label>Item Name</label>
             <input
               type="text"
@@ -56,6 +78,7 @@ const DonationForm = () => {
               onChange={handleChange}
             />
             <br />
+            {errors.name && <p className="error">{errors.name}</p>}
 
             <label>Item Image</label>
             <input
@@ -75,6 +98,7 @@ const DonationForm = () => {
               onChange={handleChange}
             />
             <br />
+            {errors.phone && <p className="error">{errors.phone}</p>}
 
             <label>Discription</label>
             <textarea
@@ -85,6 +109,7 @@ const DonationForm = () => {
               onChange={handleChange}
             ></textarea>
             <br />
+            {errors.text && <p className="error">{errors.text}</p>}
 
             <button onClick={submitForm} >Donate</button>
           </form>

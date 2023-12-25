@@ -53,9 +53,12 @@ const Navbar = () => {
   const logout = () => {
     localStorage.removeItem("DonarUser")
     localStorage.removeItem("Donar_id")
+    alert("logout successfully")
     navigate("/")
     window.location.reload()
   }
+
+
 
   return (
     <>
@@ -125,6 +128,7 @@ const Navbar = () => {
               {
                 showProfile && <ul className="dropdown">
                   <li>Hi, {capitalize(userName)}</li>
+                  <li onClick={()=>{navigate("/dForm")}}>Donation Form</li>
                   <li onClick={()=>{logout()}}>Logout</li>
                 </ul>
               }

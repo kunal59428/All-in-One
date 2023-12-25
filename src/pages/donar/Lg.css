@@ -4,6 +4,18 @@
   position: relative;
   color: #000;
 }
+.consumer-con {
+  padding: 40px 58px;
+}
+
+.consumer-con input[type="File"] {
+  font-size: 10px;
+  margin: 20px 0px !important;
+}
+
+.consumer-con .error {
+  left: 10px;
+}
 
 label{
   display: inline-block;
@@ -24,6 +36,7 @@ label{
   margin: 0px auto;
   outline: none;
   display: flex;
+  width: fit-content;
 }
 .don-login button {
     font-size: 12px;
@@ -51,10 +64,12 @@ label{
   color: red;
   /* padding: 0px; */
   position: relative;
-  top: -25px;
+  top: -10px;
+  left: 35px;
   font-size: 13px;
   font-weight: 600;
   font-family: emoji;
+  margin-bottom: 0px;
 }
 /* .define {
   background-color: aqua;

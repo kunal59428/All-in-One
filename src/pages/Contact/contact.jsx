@@ -13,7 +13,7 @@ const Contact = () => {
                         <input type="text" name='username' placeholder='username' autoComplete='off' />
                         <input type="email" name='Email' placeholder='abc@email.com' autoComplete='off' />
                         <textarea name="message" cols="30" rows="10" placeholder='write something here....'></textarea>
-                        <input className='btn'  value='Send' />
+                        <input className='btn' type='submit' value='Send' />
                     </form>
                 </div>
                 <div className="map-section">

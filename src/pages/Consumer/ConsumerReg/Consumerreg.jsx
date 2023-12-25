@@ -3,6 +3,7 @@ import "../../donar/Lg.css"
 import axios from "axios";
 import Validation from "../cvalidation";
 
+
 const ConsumerRegister = () => {
   // const [name, setName] = useState()
   // const [email, setEmail] = useState()
@@ -25,37 +26,48 @@ const ConsumerRegister = () => {
   const submitForm = async (e) => {
     e.preventDefault();
     setErrors(Validation(value));
-    // if (
-    //   value.name === "" ||
-    //   value.email === "" ||
-    //   value.password === "" ||
-    //   value.phone === ""
-    // ) {
-    //   alert("All fields are required....");
-    // } else {
-    //   console.log(value);
-    //   const config = {
-    //     header: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   };
-    //   await axios
-    //     .post("http://localhost:8080/api/consumer-register", value, config)
-    //     .then((res) => console.log(res.data))
-    //     .catch((err) => console.log(err));
-    // }
+    if (
+      value.name === "" ||
+      value.email === "" ||
+      value.password === "" ||
+      value.phone === "" ||
+      value.cat === "" ||
+      value.LNumber === ""
+    ) {
+      alert("All fields are required....");
+    } else {
+      console.log(value);
+      const config = {
+        header: {
+          "Content-Type": "application/json",
+        },
+      };
+      await axios
+        .post("http://localhost:8080/api/consumer-register", value, config)
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
-    <div className="log-container">
+    <div className="log-container consumer-con">
       <div className="header">
         <div className="don-login">
           <form>
             <div className="main-head">
-              <h1 data-text="Consumer Register...">Consumer Register...</h1>
+              <h1 data-text="Consumer Register">Consumer Register</h1>
             </div>
+            <label>Category</label>
+            <select className="con-select" name="cat" value={value.cat} onChange={handleChange}>
+              <option value="">Select</option>
+              <option value="NGO">NGO</option>
+              <option value="ORPHANAGE">ORPHANAGE</option>
+              <option value="Other-Agency">Other Agency</option>
+            </select>
+            <br/>
+            {errors.cat && <p className="error">{errors.cat}</p>}
 
-            <label>Name</label>
+            <label>{value.cat} Name</label>
             <input
               type="text"
               name="name"
@@ -64,6 +76,26 @@ const ConsumerRegister = () => {
             />
             <br />
             {errors.name && <p className="error">{errors.name}</p>}
+
+            <label>License Number</label>
+            <input
+              type="number"
+              name="LNumber"
+              value={value.LNumber}
+              onChange={handleChange}
+            />
+            <br />
+            {errors.LNumber && <p className="error">{errors.LNumber}</p>}
+
+            <label>Upload License</label>
+            <input
+              type="File"
+              name="file"
+              accept="image/png, image/jpeg"
+              value={value.file}
+              onChange={handleChange}
+            />
+            <br />
 
             <label>Email</label>
             <input

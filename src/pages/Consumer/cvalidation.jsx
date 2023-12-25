@@ -21,9 +21,16 @@ const Validation = (value) => {
     }else if(value.password.length < 5){
         errors.password = "Password must be more than five characters"
     }
-    else{
-        errors.bool = true;
+    if(!value.LNumber){
+        errors.LNumber="License Number is required."
+    }else if(value.LNumber.length < 12){
+        errors.LNumber = "License Number must be more than 12 characters"
     }
+
+    if(value.cat === ""){
+        errors.cat="Select a Option"
+    }
+    
     return errors;
 }
 

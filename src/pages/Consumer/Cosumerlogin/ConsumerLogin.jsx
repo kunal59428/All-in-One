@@ -46,7 +46,7 @@ const ConsumerLogin = () => {
         <div className="don-login">
           <form onSubmit={submitHandle}>
             <div className="main-head">
-            <h1 data-text="Consumer Login...">Consumer Login...</h1>
+            <h1 data-text="Consumer Login.....">Consumer Login.....</h1>
             </div>
 
             <label>Email</label>
