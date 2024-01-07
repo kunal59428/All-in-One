@@ -20,24 +20,31 @@ const ConsumerLogin = () => {
 
   const submitHandle = async (e) => {
     e.preventDefault();
-    console.log(e);
-    setErrors(Validation(value));
-    console.log(errors)
-    // if (errors.bool) {
-    //   const config = {
-    //     header: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   };
-    //   await axios
-    //     .post("http://localhost:8080/api/consumer-login", value, config)
-    //     .then((res) => console.log(res.data))
-    //     .catch((err) => console.log(err));
-    //     navigate("/user")
-    // }
-    // else{
-    //   console.log("Validation")
-    // }
+    // console.log(e)
+    if(value.email === "" || value.password === ""){
+      setErrors(Validation(value));
+    }
+    else{
+      const config = {
+        header: {
+          "Content-Type": "application/json",
+        },
+      };
+      await axios
+        .post("https://all-in-one-rew7.onrender.com/api/consumer-login", value, config)
+        .then((res) => {console.log(res.data)
+        if(res.data.msg2){
+          localStorage.setItem("ConsumerUser",JSON.stringify(res.data.find))
+          localStorage.setItem("Consumer_id",JSON.stringify(res.data.find._id))
+          navigate("/product")
+          alert(res.data.msg)
+        }
+        else{
+          alert(res.data.msg)
+        }
+      }).catch((err) => console.log(err));
+      
+    }
   };
 
   return (
