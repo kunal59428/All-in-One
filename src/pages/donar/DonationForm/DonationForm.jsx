@@ -21,12 +21,27 @@ const DonationForm = () => {
 
   const [errors, setErrors] = useState([]);
 
+  const present_key = "Donation12";
+  // const cloud_name = "dktsmfsvf";
+  const [file, setFile] = useState();
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setValue({ ...value, [e.target.name]: e.target.value });
     // console.log(e.target.name)
   };
+
+  const handlefile = (e) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", present_key)
+    axios.post('https://api.cloudinary.com/v1_1/dktsmfsvf/image/upload', formData)
+    .then(res => setFile(res.data.secure_url))
+    .catch(err => console.log(err));
+
+  }
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -54,6 +69,7 @@ const DonationForm = () => {
     }).catch((err) => console.log(err));
   }
   };
+  
 
   return (
     <div className=" Dform log-container">
@@ -86,7 +102,7 @@ const DonationForm = () => {
               name="file"
               accept="image/png, image/jpeg"
               value={value.file}
-              onChange={handleChange}
+              onChange={handlefile}
             />
             <br />
 
