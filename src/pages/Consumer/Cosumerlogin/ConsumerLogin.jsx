@@ -31,7 +31,7 @@ const ConsumerLogin = () => {
         },
       };
       await axios
-        .post("https://all-in-one-rew7.onrender.com/con/consumer-login", value, config)
+        .post("https://all-in-one-rew7.onrender.com/consumer/login", value, config)
         .then((res) => {console.log(res.data)
         if(res.data.msg2){
           localStorage.setItem("ConsumerUser",JSON.stringify(res.data.find))
