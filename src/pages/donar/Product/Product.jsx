@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getItems } from "../../../Feature/ProductSlice";
 import "./product.css"
+import Spinner from "../../../components/Spinner/Spinner";
 
 function Product() {
     const {product, isLoading} = useSelector(state => state.product)
@@ -13,7 +14,7 @@ function Product() {
     return(
         <div className="product">
             {
-                isLoading?<h2>Loading.....</h2>:
+                isLoading?<h2><Spinner/></h2>:
                 product && product.map(item =>{
                    return(<div className="pcontainer" key={item._id}>
                             <div className="pheader">
