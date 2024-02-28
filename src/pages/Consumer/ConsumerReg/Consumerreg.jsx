@@ -44,8 +44,8 @@ const ConsumerRegister = () => {
       };
       await axios
         .post("https://all-in-one-rew7.onrender.com/consumer/register", value, config)
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err));
+        .then((res) => alert(res.data))
+        .catch((err) => alert(err));
     }
   };
 
