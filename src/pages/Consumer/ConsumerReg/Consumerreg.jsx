@@ -43,7 +43,7 @@ const ConsumerRegister = () => {
         },
       };
       await axios
-        .post("http://localhost:8080/consumer/register", value, config)
+        .post("https://all-in-one-rew7.onrender.com/consumer/register", value, config)
         .then((res) => console.log(res.data))
         .catch((err) => console.log(err));
     }

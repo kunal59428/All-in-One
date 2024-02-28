@@ -17,6 +17,7 @@ import DonationForm from './pages/donar/DonationForm/DonationForm';
 import Navbar from './components/navbar/Navbar';
 import Contact from './pages/Contact/contact';
 
+
 function App() {
   return (
     <div className='app'>

@@ -11,6 +11,24 @@ const DonationForm = () => {
   // const [password, setPassword] = useState()
   // const [phone, setPhone] = useState()
 
+    const [file, setFile] = useState(null);
+  
+    // const handleFileChange = (event) => {
+    //   setFile(event.target.files[0]);
+    // };
+  
+  //   const submitForm = async () => {
+      
+
+  
+  //   // return (
+  //   //   <div>
+  //   //     <input type="file" onChange={handleFileChange} />
+  //   //     <button onClick={handleUpload}>Upload</button>
+  //   //   </div>
+  //   // );
+  // };
+  // setValue
   const [value, setValue] = useState({
     name: "",
     cat: "",
@@ -21,9 +39,8 @@ const DonationForm = () => {
 
   const [errors, setErrors] = useState([]);
 
-  const present_key = "Donation12";
   // const cloud_name = "dktsmfsvf";
-  const [file, setFile] = useState();
+  // const [file, setFile] = useState();
 
   const navigate = useNavigate();
 
@@ -36,11 +53,10 @@ const DonationForm = () => {
     const file = e.target.files[0];
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", present_key)
+    formData.append("upload_preset", "")
     axios.post('https://api.cloudinary.com/v1_1/dktsmfsvf/image/upload', formData)
     .then(res => setFile(res.data.secure_url))
     .catch(err => console.log(err));
-
   }
 
   const submitForm = async (e) => {
@@ -68,7 +84,27 @@ const DonationForm = () => {
       }
     }).catch((err) => console.log(err));
   }
-  };
+
+
+  // FILEUPLOAD
+  // const formData = new FormData();
+  //     formData.append('file', file);
+  
+  //     try {
+  //       const response = await fetch('/api/upload', {
+  //         method: 'POST',
+  //         body: formData,
+  //       });
+  
+  //       if (response.ok) {
+  //         console.log('File uploaded successfully');
+  //       } else {
+  //         console.error('File upload failed');
+  //       }
+  //     } catch (error) {
+  //       console.error('Error uploading file', error);
+  //     }
+   };
   
 
   return (
