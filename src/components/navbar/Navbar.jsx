@@ -4,10 +4,12 @@ import { FaCartShopping } from "react-icons/fa6";
 import { GoSearch } from "react-icons/go";
 import "./Nav.css";
 import Category from "../Category/Category";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   //   const { cart } = useSelector((state) => state.cart);
   //   const { products } = useSelector((state) => state.products);
+  const { cartTotalQuantity } = useSelector((state) => state.cart);
 
   const [search, setSearch] = useState();
 
@@ -20,14 +22,14 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (localStorage.getItem('DonarUser')) {
-      setuserName(JSON.parse(localStorage.getItem("DonarUser")).name)
+    if (localStorage.getItem("DonarUser")) {
+      setuserName(JSON.parse(localStorage.getItem("DonarUser")).name);
     }
-  },[JSON.parse(localStorage.getItem("DonarUser"))])
+  }, [JSON.parse(localStorage.getItem("DonarUser"))]);
 
   const capitalize = (word) => {
-    return word[0].toUpperCase() + word.slice(1) 
-  }
+    return word[0].toUpperCase() + word.slice(1);
+  };
 
   useEffect(() => {
     const hamburger = document.querySelector(".hamburger");
@@ -51,14 +53,12 @@ const Navbar = () => {
   };
 
   const logout = () => {
-    localStorage.removeItem("DonarUser")
-    localStorage.removeItem("Donar_id")
-    alert("logout successfully")
-    navigate("/")
-    window.location.reload()
-  }
-
-
+    localStorage.removeItem("DonarUser");
+    localStorage.removeItem("Donar_id");
+    alert("logout successfully");
+    navigate("/");
+    window.location.reload();
+  };
 
   return (
     <>
@@ -118,26 +118,52 @@ const Navbar = () => {
             <NavLink to="/product" className="hoverBorder nav-link">
               Products
             </NavLink>
+            <NavLink to="/services" className="hoverBorder nav-link">
+              Service
+            </NavLink>
             <NavLink to="/contact" className="hoverBorder nav-link">
               Contact
             </NavLink>
 
-            {!userName ? <NavLink to="/login" className="hoverBorder nav-link">Login</NavLink> :
-            <div className="userName">
-              <span className="admin" onClick={() => setShowProfile(!showProfile)}>{userName[0].toUpperCase()} </span>
-              {
-                showProfile && <ul className="dropdown">
-                  <li>Hi, {capitalize(userName)}</li>
-                  <li onClick={()=>{navigate("/dForm")}}>Donation Form</li>
-                  <li onClick={()=>{logout()}}>Logout</li>
-                </ul>
-              }
-            </div>}
+            {!userName ? (
+              <NavLink to="/login" className="hoverBorder nav-link">
+                Login
+              </NavLink>
+            ) : (
+              <div className="userName">
+                <span
+                  className="admin"
+                  onClick={() => setShowProfile(!showProfile)}
+                >
+                  {userName[0].toUpperCase()}{" "}
+                </span>
+                {showProfile && (
+                  <ul className="dropdown">
+                    <li>Hi, {capitalize(userName)}</li>
+                    <li
+                      onClick={() => {
+                        navigate("/dForm");
+                      }}
+                    >
+                      Donation Form
+                    </li>
+                    <li
+                      onClick={() => {
+                        logout();
+                      }}
+                    >
+                      Logout
+                    </li>
+                  </ul>
+                )}
+              </div>
+            )}
 
-
-
-            <NavLink to="/" className="cart-link nav-link">
+            <NavLink to="/cart" className="cart-link nav-link">
               <FaCartShopping className="cart-trolley" />
+              <span className="bag-quantity">
+                <span>{cartTotalQuantity}</span>
+              </span>
             </NavLink>
           </ul>
           <div className="hamburger">

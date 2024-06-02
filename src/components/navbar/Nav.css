@@ -484,3 +484,21 @@ svg#logo-14 {
         margin: auto;
     }
 }
+
+
+.bag-quantity {
+    position: absolute;
+    top: 0px;
+    left: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: yellow;
+    font-size: 10px;
+    font-weight: 700;
+    color: black;
+    margin-left: 5px;
+}

@@ -15,6 +15,7 @@ const ProductSlice = createSlice({
         isLoading: false,
         isError: false
     },
+    
     extraReducers:(builder) =>{
         builder.addCase(getItems.pending, (state, action) =>{
             state.isLoading = true
