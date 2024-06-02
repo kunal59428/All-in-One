@@ -31,7 +31,7 @@ const Cart = () => {
     const headers = {
       "Content-Type": "application/json",
     };
-    const resp = await fetch("http://localhost:8080/create-checkout-session", {
+    const resp = await fetch("https://all-in-one-rew7.onrender.com/create-checkout-session", {
       method: "POST",
       headers: headers,
       body: JSON.stringify(body),
@@ -87,8 +87,8 @@ const Cart = () => {
       ) : (
         <div>
           <div className="titles">
-            <h3 className="product-title">Product</h3>
-            <h3 className="quantity">Price</h3>
+            <h3 className="product-title">Product Image</h3>
+            <h3 className="quantity">Product Name</h3>
             <h3 className="quantity">Quantity</h3>
             <h3 className="total">Total</h3>
           </div>
@@ -100,14 +100,14 @@ const Cart = () => {
                     <div className="cart-product">
                       <img src={pitem.profile} alt={pitem.name} />
                       <div>
-                        <h3>{pitem.name}</h3>
                         <p>{pitem.desc}</p>
                         <button onClick={() => handleRemoveFromCart(pitem)}>
                           Remove
                         </button>
                       </div>
                     </div>
-                    <div className="cart-product-price">${pitem.price}</div>
+                        <h3>{pitem.name}</h3>
+                    {/* <div className="cart-product-price">${pitem.price}</div> */}
                     <div className="cart-product-quantity">
                       <button onClick={() => handleDecreaseCart(pitem)}>
                         -
