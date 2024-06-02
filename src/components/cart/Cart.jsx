@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "./cart.css";
 import { useDispatch, useSelector } from "react-redux";
-import {loadStripe} from "@stripe/stripe-js"
+import { loadStripe } from "@stripe/stripe-js";
 import {
   addToCart,
   clearCart,
@@ -22,26 +22,27 @@ const Cart = () => {
 
   // Payment gateway
 
-  const makePayment = async() => {
-    const stripe = await loadStripe("pk_test_51PNIw3IW4TOd5CqDlxKk98RkGEwnZoYKoG9lKNN93d8RImqnbZCxxLJqvksvAyLMLIalkWkHgPP6iD5bwLHBSOCU00NQJ6Y2vK")
-    const body = {products:cart}
-    console.log(body)
+  const makePayment = async () => {
+    const stripe = await loadStripe(
+      "pk_test_51PNIw3IW4TOd5CqDlxKk98RkGEwnZoYKoG9lKNN93d8RImqnbZCxxLJqvksvAyLMLIalkWkHgPP6iD5bwLHBSOCU00NQJ6Y2vK"
+    );
+    const body = { products: cart };
+    // console.log(body)
     const headers = {
-      "Content-Type" : "application/json"
-    }
-    const resp = await fetch("http://localhost:8080/create-checkout-session",{
-                  method : "POST",
-                  body : JSON.stringify(body),
-                  headers : headers
-                }
-    )
+      "Content-Type": "application/json",
+    };
+    const resp = await fetch("http://localhost:8080/create-checkout-session", {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(body),
+    });
 
     const session = await resp.json();
-    const result = stripe.redirectToCheckout({sessionId : session.id});
-    if(result.error){
-      console.log(result.error)
+    const result = stripe.redirectToCheckout({ sessionId: session.id });
+    if (result.error) {
+      console.log(result.error);
     }
-  }
+  };
 
   const handleAddToCart = (item) => {
     dispatch(addToCart(item));
@@ -62,7 +63,7 @@ const Cart = () => {
         <div className="cart-empty">
           <p>Your cart is currently empty</p>
           <div className="cartimg">
-          <img src="./donation/emptycart.jpg" alt="Empty-cart" />
+            <img src="./donation/emptycart.jpg" alt="Empty-cart" />
           </div>
           <div className="start-shopping">
             <Link to="/Product">
@@ -86,7 +87,7 @@ const Cart = () => {
       ) : (
         <div>
           <div className="titles">
-            <h3 className="product-title">Product</h3>            
+            <h3 className="product-title">Product</h3>
             <h3 className="quantity">Price</h3>
             <h3 className="quantity">Quantity</h3>
             <h3 className="total">Total</h3>
