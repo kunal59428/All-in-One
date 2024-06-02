@@ -98,7 +98,7 @@ const Cart = () => {
                 return (
                   <div className="cartitem" key={pitem._id}>
                     <div className="cart-product">
-                      <img src={pitem.image} alt={pitem.name} />
+                      <img src={pitem.profile} alt={pitem.name} />
                       <div>
                         <h3>{pitem.name}</h3>
                         <p>{pitem.desc}</p>
