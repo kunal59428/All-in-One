@@ -73,7 +73,7 @@ const DonationForm = () => {
 
   const submitForm = async (e) => {
     e.preventDefault();
-    console.log(profile);
+    // console.log(profile);
     setErrors(Validation(value));
     if (
       value.name === "" ||

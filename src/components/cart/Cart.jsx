@@ -90,7 +90,7 @@ const Cart = () => {
             <h3 className="product-title">Product Image</h3>
             <h3 className="quantity">Product Name</h3>
             <h3 className="quantity">Quantity</h3>
-            <h3 className="total">Total</h3>
+            <h3 className="total">Description</h3>
           </div>
           <div className="cart-items">
             {cart.cartItems &&
@@ -115,9 +115,10 @@ const Cart = () => {
                       <div className="count">{pitem.cartQuantity}</div>
                       <button onClick={() => handleAddToCart(pitem)}>+</button>
                     </div>
-                    <div className="cart-product-total-price">
+                    {/* <div className="cart-product-total-price">
                       ${pitem.price * pitem.cartQuantity}
-                    </div>
+                    </div> */}
+                    <div>{pitem.text}</div>
                   </div>
                 );
               })}
@@ -127,11 +128,11 @@ const Cart = () => {
               Clear Cart
             </button>
             <div className="cart-checkout">
-              <div className="subtotal">
+              {/* <div className="subtotal">
                 <span>Subtotal</span>
                 <span className="amount">${cart.cartTotalAmount}</span>
-              </div>
-              <p>Taxes and shipping calculated at checkout</p>
+              </div> */}
+              {/* <p>Taxes and shipping calculated at checkout</p> */}
               <button onClick={makePayment}>Check out</button>
               <div className="continue-shopping">
                 <Link to="/Product">
