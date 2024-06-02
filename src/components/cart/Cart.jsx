@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import "./cart.css";
 import { useDispatch, useSelector } from "react-redux";
+import {loadStripe} from "@stripe/stripe-js"
 import {
   addToCart,
   clearCart,
@@ -18,6 +19,29 @@ const Cart = () => {
   useEffect(() => {
     dispatch(getTotals());
   }, [cart, dispatch]);
+
+  // Payment gateway
+
+  const makePayment = async() => {
+    const stripe = await loadStripe("pk_test_51PNIw3IW4TOd5CqDlxKk98RkGEwnZoYKoG9lKNN93d8RImqnbZCxxLJqvksvAyLMLIalkWkHgPP6iD5bwLHBSOCU00NQJ6Y2vK")
+    const body = {products:cart}
+    console.log(body)
+    const headers = {
+      "Content-Type" : "application/json"
+    }
+    const resp = await fetch("http://localhost:8080/create-checkout-session",{
+                  method : "POST",
+                  body : JSON.stringify(body),
+                  headers : headers
+                }
+    )
+
+    const session = await resp.json();
+    const result = stripe.redirectToCheckout({sessionId : session.id});
+    if(result.error){
+      console.log(result.error)
+    }
+  }
 
   const handleAddToCart = (item) => {
     dispatch(addToCart(item));
@@ -107,7 +131,7 @@ const Cart = () => {
                 <span className="amount">${cart.cartTotalAmount}</span>
               </div>
               <p>Taxes and shipping calculated at checkout</p>
-              <button>Check out</button>
+              <button onClick={makePayment}>Check out</button>
               <div className="continue-shopping">
                 <Link to="/Product">
                   <svg

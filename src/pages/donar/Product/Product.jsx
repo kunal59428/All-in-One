@@ -31,8 +31,8 @@ function Product() {
           return (
             <div key={item._id} className="pcontainer">
               <div className="pheader">
-                <img src={item.file} alt={item.name} />
-                <img src="./donation/1.jpg" alt="chair" />
+                <img src={item.profile} alt={item.name} />
+                {/* <img src="./donation/1.jpg" alt="chair" /> */}
                 <div className="pbutton">
                   <h3>{item.name}</h3>
                   <button
