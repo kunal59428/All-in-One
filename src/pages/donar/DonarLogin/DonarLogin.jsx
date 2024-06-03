@@ -14,18 +14,18 @@ const DonarLogin = () => {
 
   const handleChange = (e) => {
     setValue({ ...value, [e.target.name]: e.target.value });
-    
+
     // console.log(e.target.name)
   };
   const [errors, setErrors] = useState([]);
 
   const submitHandle = async (e) => {
     e.preventDefault();
+    // setValue(" ")
     // console.log(errors)
-    if(value.email === "" || value.password === ""){
+    if (value.email === "" || value.password === "") {
       setErrors(Validation(value));
-    }
-    else{
+    } else {
       const config = {
         header: {
           "Content-Type": "application/json",
@@ -33,18 +33,23 @@ const DonarLogin = () => {
       };
       await axios
         .post("https://all-in-one-rew7.onrender.com/api/login", value, config)
-        .then((res) => {console.log(res.data)
-        if(res.data.msg2){
-          localStorage.setItem("DonarUser",JSON.stringify(res.data.find))
-          localStorage.setItem("Donar_id",JSON.stringify(res.data.find._id))
-          navigate("/dForm")
-          alert(res.data.msg)
-        }
-        else{
-          alert(res.data.msg)
-        }
-      }).catch((err) => console.log(err));
-      
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.msg2) {
+            localStorage.setItem("DonarUser", JSON.stringify(res.data.find));
+            localStorage.setItem("Donar_id", JSON.stringify(res.data.find._id));
+            navigate("/dForm");
+
+            alert(res.data.msg);
+          } else {
+            alert(res.data.msg);
+          }
+        })
+        .catch((err) => console.log(err));
+      setValue({
+        email: "",
+        password: "",
+      });
     }
   };
 

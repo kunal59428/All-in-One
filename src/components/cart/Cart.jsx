@@ -31,11 +31,14 @@ const Cart = () => {
     const headers = {
       "Content-Type": "application/json",
     };
-    const resp = await fetch("https://all-in-one-rew7.onrender.com/create-checkout-session", {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify(body),
-    });
+    const resp = await fetch(
+      "https://all-in-one-rew7.onrender.com/create-checkout-session",
+      {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(body),
+      }
+    );
 
     const session = await resp.json();
     const result = stripe.redirectToCheckout({ sessionId: session.id });
@@ -86,18 +89,13 @@ const Cart = () => {
         </div>
       ) : (
         <div>
-          <div className="titles">
-            <h3 className="quantity">Product Name</h3>
-            <h3 className="quantity">Quantity</h3>
-            <h3 className="total">Description</h3>
-            <h3 className="product-title">Product Image</h3>
-          </div>
-          <div className="cart-items">
+          <div className="">
             {cart.cartItems &&
               cart.cartItems.map((pitem) => {
                 return (
                   <div className="cartitem" key={pitem._id}>
-                    <div className="cart-product">
+                    <div className="title cart-product">
+                      <h3 className="product-title">Product Image</h3>
                       <img src={pitem.profile} alt={pitem.name} />
                       <div>
                         <p>{pitem.desc}</p>
@@ -106,8 +104,12 @@ const Cart = () => {
                         </button>
                       </div>
                     </div>
-                        <h3>{pitem.name}</h3>
-                    {/* <div className="cart-product-price">${pitem.price}</div> */}
+                    <div className="title">
+                      <h3 className="product-title">Product Name</h3>
+                    <h3>{pitem.name}</h3>
+                    </div>
+                    <div className="title">
+                      <h3 className="product-title">Quantity</h3>
                     <div className="cart-product-quantity">
                       <button onClick={() => handleDecreaseCart(pitem)}>
                         -
@@ -115,10 +117,17 @@ const Cart = () => {
                       <div className="count">{pitem.cartQuantity}</div>
                       <button onClick={() => handleAddToCart(pitem)}>+</button>
                     </div>
+                    </div>
+                    <div className="title">
+                      <h3 className="product-title">Description</h3>
+                    <div>{pitem.text}</div>
+                    </div>
+                    {/* <div className="cart-product">
+                    </div> */}
+                    {/* <div className="cart-product-price">${pitem.price}</div> */}
                     {/* <div className="cart-product-total-price">
                       ${pitem.price * pitem.cartQuantity}
                     </div> */}
-                    <div>{pitem.text}</div>
                   </div>
                 );
               })}

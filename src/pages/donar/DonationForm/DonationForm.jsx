@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 import { Button } from "@chakra-ui/react";
 
 const DonationForm = () => {
-
   const [value, setValue] = useState({
     name: "",
     cat: "",
@@ -91,11 +90,12 @@ const DonationForm = () => {
       await axios
         .post(
           "https://all-in-one-rew7.onrender.com/item/donation",
-          {...value, profile },
+          { ...value, profile },
           config
         )
         .then((res) => {
-          console.log(res.data);
+          setValue(" ");
+          // console.log(res.data);
           navigate("/");
           if (res.data.msg2) {
             alert(res.data.msg);
@@ -104,6 +104,13 @@ const DonationForm = () => {
           }
         })
         .catch((err) => console.log(err));
+      setValue({
+        name: "",
+        cat: "",
+        file: "",
+        phone: "",
+        text: "",
+      });
     }
   };
 

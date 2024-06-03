@@ -40,9 +40,10 @@ const DonarRegister = () => {
         },
       };
       await axios
-        .post("https://all-in-one-rew7.onrender.com/api/register", value, config)
-        .then((res) => alert(res.data))
+        .post("http://localhost:8080/api/register", value, config)
+        .then((res) => alert(res.data.msg))
         .catch((err) => alert(err));
+        setValue(" ")
     }
   };
 

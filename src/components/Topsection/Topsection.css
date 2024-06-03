@@ -185,7 +185,7 @@
         
     }
     .home-data {
-        margin: 30px;
+        margin: 5px 15px;
         font-size: 15px;
     }
     .img-1 {
@@ -200,6 +200,9 @@
     }
     .carousel .control-prev.control-arrow {
         left: 4px;
+    }
+    .Topsection {
+        height: 140vh !important;
     }
     
 }
