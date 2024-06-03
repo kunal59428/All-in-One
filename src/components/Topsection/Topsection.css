@@ -171,10 +171,18 @@
         gap: 20px;
         width: 80vw;
     }
-
-
+    .home-data {
+        margin: 15px 10px;
+    }
+    .Topsection {
+        height: 134vh !important;
+    }
     .home-store>h1 {
         margin-left: 20px;
+    }
+    .img-1 {
+        padding: 0px;
+        margin: 0px;
     }
 }
 
@@ -185,7 +193,7 @@
         
     }
     .home-data {
-        margin: 5px 15px;
+        margin: 6px 15px;
         font-size: 15px;
     }
     .img-1 {
@@ -202,7 +210,7 @@
         left: 4px;
     }
     .Topsection {
-        height: 140vh !important;
+        height: 134vh !important;
     }
     
 }
