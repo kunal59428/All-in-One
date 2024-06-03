@@ -32,7 +32,7 @@ const Cart = () => {
       "Content-Type": "application/json",
     };
     const resp = await fetch(
-      "https://all-in-one-rew7.onrender.com/create-checkout-session",
+      "http://localhost:8080/create-checkout-session",
       {
         method: "POST",
         headers: headers,
@@ -89,38 +89,50 @@ const Cart = () => {
         </div>
       ) : (
         <div>
+          <div className="cartitem">
+            <h3 className="product-title">Product Image</h3>
+            <h3 className="product-title">Product Name</h3>
+            <h3 className="product-title">Quantity</h3>
+            <h3 className="product-title">Description</h3>
+          </div>
           <div className="">
             {cart.cartItems &&
               cart.cartItems.map((pitem) => {
                 return (
-                  <div className="cartitem" key={pitem._id}>
+                  <div className="cartitem ct" key={pitem._id}>
                     <div className="title cart-product">
-                      <h3 className="product-title">Product Image</h3>
-                      <img src={pitem.profile} alt={pitem.name} />
-                      <div>
-                        <p>{pitem.desc}</p>
-                        <button onClick={() => handleRemoveFromCart(pitem)}>
-                          Remove
-                        </button>
+                      <div className="product_box">
+                        <img src={pitem.profile} alt={pitem.name} />
+                        <div className="pbtn">
+                          <p>{pitem.desc}</p>
+                          <button className="btn" onClick={() => handleRemoveFromCart(pitem)}>
+                            Remove
+                          </button>
+                        </div>
                       </div>
                     </div>
                     <div className="title">
-                      <h3 className="product-title">Product Name</h3>
-                    <h3>{pitem.name}</h3>
+                      <div className="product_box">
+                        <h3>{pitem.name}</h3>
+                      </div>
                     </div>
                     <div className="title">
-                      <h3 className="product-title">Quantity</h3>
-                    <div className="cart-product-quantity">
-                      <button onClick={() => handleDecreaseCart(pitem)}>
-                        -
-                      </button>
-                      <div className="count">{pitem.cartQuantity}</div>
-                      <button onClick={() => handleAddToCart(pitem)}>+</button>
-                    </div>
+                      <div className="product_box">
+                        <div className="cart-product-quantity">
+                          <button onClick={() => handleDecreaseCart(pitem)}>
+                            -
+                          </button>
+                          <div className="count">{pitem.cartQuantity}</div>
+                          <button onClick={() => handleAddToCart(pitem)}>
+                            +
+                          </button>
+                        </div>
+                      </div>
                     </div>
                     <div className="title">
-                      <h3 className="product-title">Description</h3>
-                    <div>{pitem.text}</div>
+                      <div className="product_box">
+                        <div>{pitem.text}</div>
+                      </div>
                     </div>
                     {/* <div className="cart-product">
                     </div> */}

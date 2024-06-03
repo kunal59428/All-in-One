@@ -46,11 +46,11 @@ const DonarLogin = () => {
           }
         })
         .catch((err) => console.log(err));
+      }
       setValue({
         email: "",
         password: "",
       });
-    }
   };
 
   return (
