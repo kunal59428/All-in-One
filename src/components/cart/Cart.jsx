@@ -87,10 +87,10 @@ const Cart = () => {
       ) : (
         <div>
           <div className="titles">
-            <h3 className="product-title">Product Image</h3>
             <h3 className="quantity">Product Name</h3>
             <h3 className="quantity">Quantity</h3>
             <h3 className="total">Description</h3>
+            <h3 className="product-title">Product Image</h3>
           </div>
           <div className="cart-items">
             {cart.cartItems &&
