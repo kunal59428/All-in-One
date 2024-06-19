@@ -14,6 +14,7 @@ const DonationForm = () => {
     file: "",
     phone: "",
     text: "",
+    add: "",
   });
 
   const [errors, setErrors] = useState([]);
@@ -78,7 +79,8 @@ const DonationForm = () => {
       value.name === "" ||
       value.phone === "" ||
       value.cat === "" ||
-      value.text === ""
+      value.text === "" ||
+      value.add === ""
     ) {
       alert("All fields are required....");
     } else {
@@ -110,6 +112,7 @@ const DonationForm = () => {
         file: "",
         phone: "",
         text: "",
+        add: "",
       });
     }
   };
@@ -146,7 +149,6 @@ const DonationForm = () => {
               onChange={(e) => imgDetails(e.target.files[0])}
             />
             <br />
-
             <label>Phone</label>
             <input
               type="number"
@@ -154,8 +156,17 @@ const DonationForm = () => {
               value={value.phone}
               onChange={handleChange}
             />
+            <br/>
+
+            <label>Address</label>
+            <input
+              type="text"
+              name="add"
+              value={value.add}
+              onChange={handleChange}
+            />
             <br />
-            {errors.phone && <p className="error">{errors.phone}</p>}
+            {errors.add && <p className="error">{errors.add}</p>}
 
             <label>Discription</label>
             <textarea

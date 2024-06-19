@@ -11,6 +11,12 @@ const Validation = (value) => {
         errors.phone = "phone number must be of ten digits."
     }
 
+    if(!value.add){
+        errors.add="Address is required."
+    }else if(value.add.length < 10){
+        errors.add = "Provide Complete adress"
+    }
+
     if(!value.email){
         errors.email="Email is required."
     }else if (!/\S+@\S+\.\S+/.test(value.email)){

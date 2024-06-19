@@ -35,6 +35,7 @@ function Product() {
                 {/* <img src="./donation/1.jpg" alt="chair" /> */}
                 <div className="pbutton">
                   <h3>{item.name}</h3>
+                  <h3>{item.add}</h3>
                   <button
                     className="btn"
                     onClick={() => {
