@@ -6,16 +6,16 @@ const Category = () =>{
     return(
         <div className='category-main'>
             <div className="Item-product">
-                <NavLink to="/">Furniture</NavLink>
+                <NavLink to="/product">Furniture</NavLink>
             </div>
             <div className="Item-product">
-                <NavLink to="/">Clothes</NavLink>
+                <NavLink to="/product">Clothes</NavLink>
             </div>
             <div className="Item-product">
-                <NavLink to="/">Toys</NavLink>
+                <NavLink to="/product">Toys</NavLink>
             </div>
             <div className="Item-product">
-                <NavLink to="/">Others Item</NavLink>
+                <NavLink to="/product">Others Item</NavLink>
             </div>
         </div>
     )
